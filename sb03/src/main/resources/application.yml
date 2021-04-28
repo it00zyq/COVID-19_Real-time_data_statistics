@@ -1,0 +1,10 @@
+server:
+  port: 9002
+
+data:
+  #url: https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv
+  #url: https://gitee.com/dgut-sai/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv
+  # 获取数据的地址
+  url: https://raw.fastgit.org/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv
+  # 每天8点重新拉取数据
+  cron: 0 0 8 * * *
