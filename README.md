@@ -1,6 +1,6 @@
 ```
 东莞理工学院网络空间安全学院
-实验名称	全球新型冠状病毒实时数据统计应用程序的设计与实现
+实验名称：全球新型冠状病毒实时数据统计应用程序的设计与实现
 ```
 
 # 一、	实验目标：
@@ -17,14 +17,10 @@ IntelliJ IDEA 2021版本，
 Mysql 5.6 以上
 JDK 1.8以上
 # 三、	实验内容：
-（1）使用IDEA构建spring boot项目
-（2）利用定时任务实现每天自动抓取github等网站的csv数据。
-参考：
-https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series 
-https://gitee.com/IOP_tech/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series
-（4）利用第三方包解析csv数据，并将有用的数据保存到数据库。
-（5）利用前端表图如echarts等实现界面可视化
-（6）要求界面尽可能的美观，代码有注释。
+- 使用IDEA构建spring boot项目
+- 利用定时任务实现每天自动抓取github等网站的csv数据。
+- 利用第三方包解析csv数据，并将有用的数据保存到数据库。
+- 利用vue框架+Element-UI可视化展示数据
 # 四、	实验步骤(可与实验内容合并描述)：
 ## 导入maven依赖
 ```xml
