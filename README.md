@@ -1,19 +1,22 @@
+```
 东莞理工学院网络空间安全学院
 实验名称	全球新型冠状病毒实时数据统计应用程序的设计与实现
-一、	实验目标：
+```
+
+# 一、	实验目标：
 本实验项目要求学生综合运用课堂学习的Spring MVC、Spring内置Http同步客户端RestTemplate工具、Spring计划任务功能的知识内容，
 设计实现一个全球新型冠状病毒实时数据统计应用程序。 实 验内容包括Http同步客户端爬取Github仓库的CSV文件数据 ，
 并使用Angular、React或Vue等的前 端框架开发一个数据展示仪表板的应用程序。应用程序可以每天自动更新数据，
 用户通过本实验实 现的应用程序可以实时了解到全球新型冠状病毒确诊数据等。
-二、	实验条件：
-2.1 硬件条件：
+# 二、	实验条件：
+## 2.1 硬件条件：
 CPU:i3以上；
 内存：8g内存以上
-2.2 软件条件：
+## 2.2 软件条件：
 IntelliJ IDEA 2021版本，
 Mysql 5.6 以上
 JDK 1.8以上
-三、	实验内容：
+# 三、	实验内容：
 （1）使用IDEA构建spring boot项目
 （2）利用定时任务实现每天自动抓取github等网站的csv数据。
 参考：
@@ -22,8 +25,9 @@ https://gitee.com/IOP_tech/COVID-19/tree/master/csse_covid_19_data/csse_covid_19
 （4）利用第三方包解析csv数据，并将有用的数据保存到数据库。
 （5）利用前端表图如echarts等实现界面可视化
 （6）要求界面尽可能的美观，代码有注释。
-四、	实验步骤(可与实验内容合并描述)：
-1）	导入maven依赖
+# 四、	实验步骤(可与实验内容合并描述)：
+## 导入maven依赖
+```xml
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -46,8 +50,10 @@ https://gitee.com/IOP_tech/COVID-19/tree/master/csse_covid_19_data/csse_covid_19
         <scope>test</scope>
     </dependency>
 </dependencies>
+```
 
-2）	配置yml文件
+## 配置yml文件
+```
 server:
   port: 9002
 
@@ -58,9 +64,11 @@ data:
   url: https://raw.fastgit.org/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv
   # 每天8点重新拉取数据
   cron: 0 0 8 * * *
+```
 
 
-3）	跨域配置与其他配置
+## 跨域配置与其他配置
+```java
 package com.it00zyq.demo.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -88,7 +96,9 @@ public class WebCorsConfig implements WebMvcConfigurer {
     }
 
 }
+```
 
+```java
 package com.it00zyq.demo.config;
 
 import org.springframework.boot.CommandLineRunner;
@@ -125,8 +135,9 @@ public class MyConfig {
     }
 
 }
-
-4）	爬取数据定时任务
+```
+## 爬取数据定时任务
+```java
 package com.it00zyq.demo.config;
 
 import com.it00zyq.demo.vo.DataVO;
@@ -236,8 +247,10 @@ public class TimeTask {
         return dataList;
     }
 }
+```
+## 控制层
 
-5）	控制层
+```java
 package com.it00zyq.demo.controller;
 
 import com.it00zyq.demo.service.DataService;
@@ -284,8 +297,9 @@ public class DataController {
 
 
 }
-
-6）	服务层
+```
+## 服务层
+```java
 package com.it00zyq.demo.service;
 
 import com.it00zyq.demo.vo.DataVO;
@@ -318,7 +332,9 @@ public interface DataService {
     List<DateDataVO> detail(Integer id);
 
 }
+```
 
+```java
 package com.it00zyq.demo.service.impl;
 
 import com.it00zyq.demo.config.TimeTask;
@@ -429,8 +445,9 @@ public class DataServiceImpl implements DataService {
                 .build();
     }
 }
-
-7）	前端主要页面代码
+```
+## 前端主要页面代码
+```
 <template>
   <div class="hello">
     <div class="container">
@@ -606,8 +623,11 @@ public class DataServiceImpl implements DataService {
     text-align: center;
   }
 </style>
-
-五、	实验结果(及分析)：
+```
+# 五、	实验结果(及分析)：
 可通过国家名称搜索数据，默认显示全部国家
+![image](https://user-images.githubusercontent.com/58462525/116366294-ba2bce00-a838-11eb-9251-f022f43c4419.png)
+
 查看详情可查看指定地区每日累计确诊人数
+![image](https://user-images.githubusercontent.com/58462525/116366317-c152dc00-a838-11eb-8076-f8f86bf35523.png)
 
