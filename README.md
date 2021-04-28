@@ -625,9 +625,9 @@ public class DataServiceImpl implements DataService {
 </style>
 ```
 # 五、	实验结果(及分析)：
-可通过国家名称搜索数据，默认显示全部国家
+## 可通过国家名称搜索数据，默认显示全部国家
 ![image](https://user-images.githubusercontent.com/58462525/116366294-ba2bce00-a838-11eb-9251-f022f43c4419.png)
 
-查看详情可查看指定地区每日累计确诊人数
+## 查看详情可查看指定地区每日累计确诊人数
 ![image](https://user-images.githubusercontent.com/58462525/116366317-c152dc00-a838-11eb-8076-f8f86bf35523.png)
 
